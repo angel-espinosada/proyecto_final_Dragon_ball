@@ -6,6 +6,7 @@
 *.a
 *.core
 *.moc
+*.TMP
 *.o
 *.obj
 *.orig
