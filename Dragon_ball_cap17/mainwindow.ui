@@ -17,10 +17,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>40</y>
-      <width>500</width>
-      <height>400</height>
+      <x>-20</x>
+      <y>-10</y>
+      <width>800</width>
+      <height>600</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -28,30 +28,47 @@
 background-image: url(:/Momento 2/Sprites/fondoPrincipal.png);</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="nivel1">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>230</y>
+      <x>350</x>
+      <y>530</y>
       <width>75</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>INICIAR</string>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>24</width>
+      <height>24</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>120</y>
-      <width>49</width>
-      <height>16</height>
+      <x>230</x>
+      <y>-30</y>
+      <width>291</width>
+      <height>141</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    color: orange;               /* Color característico */
+    font-size: 40px;             /* Tamaño grande */
+    font-weight: bold;           /* Negrita */
+    font-family: Impact, &quot;Arial Black&quot;, sans-serif; /* Fuente gruesa tipo DBZ */
+    border: 0px solid black;     /* Contorno negro */
+    padding: 10px;
+    background-color: none;   /* Opcional, como aura */
+}</string>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>DRAGON BALL</string>
     </property>
    </widget>
   </widget>
