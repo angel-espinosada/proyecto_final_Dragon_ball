@@ -15,7 +15,9 @@ Niveles::~Niveles()
 
 void Niveles::on_nivel1_clicked()
 {
-
+    Nivel_1 *nivel_1 = new Nivel_1;
+    close();
+    nivel_1->show();
 }
 
 

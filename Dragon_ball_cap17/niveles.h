@@ -3,7 +3,7 @@
 
 #include <QWidget>
 #include "mainwindow.h"
-
+#include  "nivel_1.h"
 namespace Ui {
 class Niveles;
 }

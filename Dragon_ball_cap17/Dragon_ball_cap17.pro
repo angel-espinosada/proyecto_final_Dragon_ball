@@ -11,14 +11,20 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    menupausa.cpp \
+    nivel_1.cpp \
     niveles.cpp
 
 HEADERS += \
     mainwindow.h \
+    menupausa.h \
+    nivel_1.h \
     niveles.h
 
 FORMS += \
     mainwindow.ui \
+    menupausa.ui \
+    nivel_1.ui \
     niveles.ui
 
 # Default rules for deployment.
