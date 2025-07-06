@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QDialog>
 #include "niveles.h"
+#include "nivel_1.h"
+#include<QTimer>
 
 
 namespace Ui {
@@ -17,6 +19,7 @@ class MenuPausa : public  QDialog
 
 public:
     explicit MenuPausa(QWidget *parent = nullptr);
+   void setTimer(QTimer *timer);
     ~MenuPausa();
     QString opcionSeleccionada;
 
@@ -38,6 +41,7 @@ private slots:
 
 private:
     Ui::MenuPausa *ui;
+    QTimer *fondoTimer;
 };
 
 #endif // MENUPAUSA_H

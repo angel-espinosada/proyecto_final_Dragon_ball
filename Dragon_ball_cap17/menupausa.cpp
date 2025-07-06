@@ -11,6 +11,12 @@ MenuPausa::MenuPausa(QWidget *parent)
     ui->pausar->setEnabled(true);
 }
 
+void MenuPausa::setTimer(QTimer *timer)
+{
+    fondoTimer = timer;
+    qDebug() << "[MenuPausa] Recibido bgTimer:" << fondoTimer;
+}
+
 MenuPausa::~MenuPausa()
 {
     delete ui;
@@ -18,10 +24,17 @@ MenuPausa::~MenuPausa()
 
 void MenuPausa::on_pausar_clicked()
 {
-    QMessageBox::information(this, "Pausa", "El juego está en pausa.");
-    ui->pausar->setEnabled(false); // Deshabilita el botón después de hacer clic
+    if (fondoTimer && fondoTimer->isActive()) {
+        fondoTimer->stop();
+        qDebug() << "Temporizador detenido desde menú.";
+    } else {
+        qDebug() << "Timer no recibido o ya detenido.";
+    }
 
+    QMessageBox::information(this, "Pausa", "El juego está en pausa.");
+    ui->pausar->setEnabled(false);
 }
+
 
 
 void MenuPausa::on_cerrar_clicked()

@@ -57,9 +57,10 @@ Nivel_1::Nivel_1(QWidget *parent)
 
     //movimiento
 
-    bgTimer = new QTimer(this);
-    connect(bgTimer, SIGNAL(timeout()), this,SLOT(bgmov()));
-    bgTimer->start(20);
+    fondoTimer = new QTimer(this);
+    connect(fondoTimer, SIGNAL(timeout()), this,SLOT(bgmov()));
+    fondoTimer->start(20);
+
 }
 
 Nivel_1::~Nivel_1()
@@ -69,10 +70,17 @@ Nivel_1::~Nivel_1()
 
 void Nivel_1::mostrarMenuPausa()
 {
+
+    qDebug() << "Antes de pausar, activo:" << bgTimer->isActive(); // Debe dar true
+    fondoTimer->stop();
     MenuPausa menu;
+    menu.setTimer(fondoTimer);
     menu.exec();
 
+    qDebug() << "Antes de pausar, activo:" << fondoTimer->isActive();
+     fondoTimer->stop();
     if (menu.opcionSeleccionada == "continuar") {
+        fondoTimer->start(20);
         // No hacer nada, solo continuar
     } else if (menu.opcionSeleccionada == "cerrar") {
         this->close();

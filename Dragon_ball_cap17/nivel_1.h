@@ -31,7 +31,7 @@ private:
     void mostrarMenuPausa();
     QGraphicsScene *scene;
     QGraphicsPixmapItem *bgImage1,*bgImage2;
-    QTimer *bgTimer, *timer,*asTimer;
+    QTimer *bgTimer, *timer,*asTimer,*fondoTimer;
 
 private slots:
     void bgmov();
