@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>../Momento 2/Sprites/fondoPrincipal.png</file>
+        <file>../Momento 2/Sprites/fondoniveles.png</file>
     </qresource>
 </RCC>
