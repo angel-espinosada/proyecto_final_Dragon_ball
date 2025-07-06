@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>../Momento 2/Sprites/fondoPrincipal.png</file>
         <file>../Momento 2/Sprites/fondoniveles.png</file>
+        <file>../Momento 2/Sprites/vidas.png</file>
+        <file>../Momento 2/Sprites/fondonivel1.PNG</file>
     </qresource>
 </RCC>

@@ -32,6 +32,34 @@ Nivel_1::Nivel_1(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("Nivel 1 - Entrenamiento de Goku");
+   QPixmap vida(":/Momento 2/Sprites/vidas.png");
+    ui->vida1->setPixmap(vida);
+    ui->vida2->setPixmap(vida);
+    ui->vida3->setPixmap(vida);
+    qDebug() << "Imagen GGGG";
+    //Fondp
+    scene = new QGraphicsScene(this);                   // 1. Crear la escena
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QPixmap originalImage(":/Momento 2/Sprites/fondonivel1.PNG");
+    if (originalImage.isNull()) {
+        qDebug() << "Imagen no cargada";
+        return; // Evita crash
+    }
+    QPixmap mirroredImage = originalImage.transformed(QTransform().scale(-1,1));
+    bgImage1=new QGraphicsPixmapItem(originalImage);
+    bgImage2=new QGraphicsPixmapItem(mirroredImage);
+    bgImage1->setPos(0,0);
+    bgImage2->setPos(originalImage.width(),0);
+    scene->addItem(bgImage1);
+    scene->addItem(bgImage2);
+
+    //movimiento
+
+    bgTimer = new QTimer(this);
+    connect(bgTimer, SIGNAL(timeout()), this,SLOT(bgmov()));
+    bgTimer->start(20);
 }
 
 Nivel_1::~Nivel_1()
@@ -51,5 +79,20 @@ void Nivel_1::mostrarMenuPausa()
         Niveles *niveles = new Niveles;
         niveles->show();
     }
+}
+
+void Nivel_1::bgmov()
+{
+    bgImage1->setX(bgImage1->x()-5.0);
+    bgImage2->setX(bgImage2->x()-5.0);
+
+    //if (bgImage1->x()<=800-bgImage1->pixmap().width())
+    //bgImage1->setX(0);
+    if (bgImage1->x()<=-bgImage1->pixmap().width())
+        bgImage1->setX(bgImage2->x()+bgImage2->pixmap().width());
+
+    if (bgImage2->x()<=-bgImage2->pixmap().width())
+        bgImage2->setX(bgImage1->x()+bgImage2->pixmap().width());
+
 }
 

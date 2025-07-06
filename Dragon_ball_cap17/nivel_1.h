@@ -6,7 +6,11 @@
 #include <QCloseEvent>
 #include "niveles.h"
 #include "menupausa.h"
-
+#include<QGraphicsScene>
+#include<QTimer>
+#include <QGraphicsPixmapItem>
+#include<QDebug>
+#include <QPixmap>
 namespace Ui {
 class Nivel_1;
 }
@@ -25,8 +29,12 @@ public:
 private:
     Ui::Nivel_1 *ui;
     void mostrarMenuPausa();
+    QGraphicsScene *scene;
+    QGraphicsPixmapItem *bgImage1,*bgImage2;
+    QTimer *bgTimer, *timer,*asTimer;
 
-
+private slots:
+    void bgmov();
 };
 
 #endif // NIVEL_1_H
