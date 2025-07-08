@@ -11,6 +11,7 @@
 #include <QGraphicsPixmapItem>
 #include<QDebug>
 #include <QPixmap>
+#include "jugador.h"
 namespace Ui {
 class Nivel_1;
 }
@@ -32,7 +33,8 @@ private:
     QGraphicsScene *scene;
     QGraphicsPixmapItem *bgImage1,*bgImage2;
     QTimer *bgTimer, *timer,*asTimer,*fondoTimer;
-
+    bool enPausa = false;
+    Jugador* jugador;
 private slots:
     void bgmov();
 };

@@ -54,12 +54,13 @@ Nivel_1::Nivel_1(QWidget *parent)
     bgImage2->setPos(originalImage.width(),0);
     scene->addItem(bgImage1);
     scene->addItem(bgImage2);
-
+    jugador = new Jugador(this);
+    scene->addItem(jugador);
     //movimiento
 
-    fondoTimer = new QTimer(this);
-    connect(fondoTimer, SIGNAL(timeout()), this,SLOT(bgmov()));
-    fondoTimer->start(20);
+    //fondoTimer = new QTimer(this);
+    //connect(fondoTimer, SIGNAL(timeout()), this,SLOT(bgmov()));
+    //fondoTimer->start(20);
 
 }
 
@@ -71,17 +72,15 @@ Nivel_1::~Nivel_1()
 void Nivel_1::mostrarMenuPausa()
 {
 
-    qDebug() << "Antes de pausar, activo:" << bgTimer->isActive(); // Debe dar true
-    fondoTimer->stop();
-    MenuPausa menu;
+
+
+    MenuPausa menu(this);
     menu.setTimer(fondoTimer);
     menu.exec();
 
-    qDebug() << "Antes de pausar, activo:" << fondoTimer->isActive();
-     fondoTimer->stop();
     if (menu.opcionSeleccionada == "continuar") {
-        fondoTimer->start(20);
-        // No hacer nada, solo continuar
+
+
     } else if (menu.opcionSeleccionada == "cerrar") {
         this->close();
         Niveles *niveles = new Niveles;
@@ -89,8 +88,10 @@ void Nivel_1::mostrarMenuPausa()
     }
 }
 
+
 void Nivel_1::bgmov()
 {
+    if (enPausa) return;
     bgImage1->setX(bgImage1->x()-5.0);
     bgImage2->setX(bgImage2->x()-5.0);
 

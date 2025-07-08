@@ -24,12 +24,6 @@ MenuPausa::~MenuPausa()
 
 void MenuPausa::on_pausar_clicked()
 {
-    if (fondoTimer && fondoTimer->isActive()) {
-        fondoTimer->stop();
-        qDebug() << "Temporizador detenido desde menú.";
-    } else {
-        qDebug() << "Timer no recibido o ya detenido.";
-    }
 
     QMessageBox::information(this, "Pausa", "El juego está en pausa.");
     ui->pausar->setEnabled(false);

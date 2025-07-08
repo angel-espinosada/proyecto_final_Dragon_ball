@@ -41,7 +41,7 @@ private slots:
 
 private:
     Ui::MenuPausa *ui;
-    QTimer *fondoTimer;
+    QTimer *fondoTimer=  nullptr;
 };
 
 #endif // MENUPAUSA_H
