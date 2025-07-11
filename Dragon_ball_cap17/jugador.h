@@ -28,8 +28,10 @@ private:
     int frameWidth;
     int frameHeight;
     QTimer *animationTimer;
+    QTimer *animTimer;
 private slots:
     void actualizarAnimacion();
+    void actualizarFrame();
 };
 
 #endif // JUGADOR_H

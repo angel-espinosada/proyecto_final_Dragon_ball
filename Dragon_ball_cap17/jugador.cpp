@@ -39,3 +39,12 @@ void Jugador::actualizarAnimacion()
     setPixmap(frame);  // ESTA es la línea correcta
     currentFrame = (currentFrame + 1) % 4;
 }
+
+void Jugador::actualizarFrame()
+{
+    currentFrame = (currentFrame + 1) % 4; // 4 frames (0–3)
+    int col = currentFrame % 2;
+    int row = currentFrame / 2;
+    QPixmap frame = spriteSheet.copy(col * frameWidth, row * frameHeight, frameWidth, frameHeight);
+    setPixmap(frame);
+}
